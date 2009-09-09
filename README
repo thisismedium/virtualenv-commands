@@ -3,12 +3,12 @@ Virtualenv Commands
 
 Virtualenv is a very useful tool that can create isolated Python
 environments.  This package provides and extended API and additional
-commands for inspecting and manipulating virtualenv environments.
+commands for inspecting and manipulating virtual environments.
 
 Another project called virtualenvwrapper also provides additional
-commands for interacting with virtual environments by creating
-shell-level functions.  In contrast, this project is a python-centric
-command framework.
+commands for interacting with virtual environments by creating shell
+subroutines.  In contrast, this project is a python-centric command
+framework.
 
 These utilities are provided:
 
