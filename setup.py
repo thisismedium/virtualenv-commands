@@ -9,7 +9,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'vecmd',
-    version = '0.1',
+    version = '0.2',
     description = 'Additional commands for virtualenv.',
     author = 'Medium',
     author_email = 'labs@thisismedium.com',

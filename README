@@ -23,7 +23,9 @@ consistent semantics and allows additional commands to be easily
 written by anyone.  For example, ``ve-init foo`` and ``ve init foo``
 are equivalent commands.
 
-Related projects:
+Related:
 
   * virtualenv: http://pypi.python.org/pypi/virtualenv
   * virtualenvwrapper: http://www.doughellmann.com/projects/virtualenvwrapper/
+  * Extending Virtualenv: http://thisismedium.com/tech/extending-virtualenv/
+

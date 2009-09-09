@@ -1,2 +1,4 @@
 *.pyc
 vecmd.egg-info
+build
+dist
