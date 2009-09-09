@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+
+#### virtualenv-commands
+#### Extend an Environment
+
+### Copyright (c) 2009, Coptix, Inc.  All rights reserved.
+### See the LICENSE file for license terms and warranty disclaimer.
+
+"""Extend a destination virtualenv with the source virtualenvs.
+
+Extending a virtual environment means "chaining" it to some other
+source environments.  Anything in the destination virtualenv overrides
+source virtualenvs.  The effect of extending one virtualenv with
+another is to append the source virtualenv site-packages to the
+sys.path of the destination virtualenv.
+"""
+
+from __future__ import absolute_import
+import sys, os, vecmd
+from vecmd import script
+
+def main(*args, **options):
+    source = args[0:-1]; dest = args[-1]
+
+    if not os.path.exists(dest) and options.get('create'):
+        vecmd.create(dest)
+
+    if not options.get('force') and not confirm_existing(dest):
+        print 'Nothing modified.'
+        return 0
+
+    vecmd.write_extensions(dest, source)
+    print 'Done modifying "%s".' % dest
+    print 'sys.path = ', vecmd.sys_path(dest)
+
+def confirm_existing(ve):
+    if vecmd.has_extensions(ve):
+        show_extensions(ve)
+        return script.confirm('Overwrite?')
+    return True
+
+def show_extensions(ve):
+    print '"%s" is already extends:' % ve
+    for ext in vecmd.extends(ve):
+        print '  ', ext
+
+if __name__ == '__main__':
+    vecmd.begin(
+        main,
+        require=2,
+        usage="usage: %prog source ... destination",
+        description=__doc__,
+        options=(
+            vecmd.option('-c', '--create', action='store_true', help='create the destination virtualenv if it does not exist'),
+            vecmd.option('-f', '--force', action='store_true', help="don't prompt to overwrite existing extensions")
+        ))

@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+
+#### virtualenv-commands
+#### Create and Environment
+
+### Copyright (c) 2009, Coptix, Inc.  All rights reserved.
+### See the LICENSE file for license terms and warranty disclaimer.
+
+"""Create a new environment by invoking virtualenv."""
+
+from __future__ import absolute_import
+import sys, os, vecmd
+from vecmd import script
+
+def main(*args):
+    return vecmd.virtualenv(*args)
+
+if __name__ == '__main__':
+    main(*sys.argv[1:])

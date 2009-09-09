@@ -1,0 +1,42 @@
+#!/usr/bin/env python
+
+#### virtualenv-commands
+#### Clone an Environment
+
+### Copyright (c) 2009, Coptix, Inc.  All rights reserved.
+### See the LICENSE file for license terms and warranty disclaimer.
+
+"""Clone a virtualenv into a distinct virtualenv.
+
+All packages in the source environment are preserved.  Cloning
+destroys an existing destination (you will be asked before this
+happens).
+"""
+
+from __future__ import absolute_import
+import sys, os, vecmd
+from vecmd import script
+
+def main(source, dest, **options):
+
+    if not options.get('force') and not confirm_existing(dest):
+        print 'Nothing modified.'
+        return 0
+
+    vecmd.clone(source, dest)
+    print 'Done.'
+
+def confirm_existing(ve):
+    if os.path.exists(ve):
+        print '"%s" already exists.' % ve
+        return script.confirm('Overwrite?')
+    return True
+
+if __name__ == '__main__':
+    vecmd.begin(
+        main,
+        usage="usage: %prog source destination",
+        description=__doc__,
+        options=(
+            vecmd.option('-f', '--force', action='store_true', help="don't prompt to overwrite destination"),
+        ))

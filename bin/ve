@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+
+#### virtualenv-commands
+#### Command Wrapper
+
+### Copyright (c) 2009, Coptix, Inc.  All rights reserved.
+### See the LICENSE file for license terms and warranty disclaimer.
+
+"""Run a virtualenv command.
+
+Commands may be any executable in the current path with a `ve-'
+prefix.  Common commands are: init, extend, clone.
+"""
+
+from __future__ import absolute_import
+import sys, os, vecmd
+
+def main(command, *args):
+    command = 've-%s' % command
+    try:
+        return os.execvp(command, (command, ) + args)
+    except OSError as exc:
+        print exc
+        print 'Is "%s" executable in the current path?' % command
+
+if __name__ == '__main__':
+    vecmd.begin(
+        main,
+        usage="usage: %prog command [options] [arguments]",
+        description=__doc__
+    )
