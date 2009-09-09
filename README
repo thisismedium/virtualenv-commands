@@ -1,9 +1,14 @@
 Virtualenv Commands
 -------------------
 
-The python virtualenv package is a tool used to create isolated Python
-environments.  This package provides commands for inspecting and
-manipulating these environments.
+Virtualenv is a very useful tool that can create isolated Python
+environments.  This package provides and extended API and additional
+commands for inspecting and manipulating virtualenv environments.
+
+Another project called virtualenvwrapper also provides additional
+commands for interacting with virtual environments by creating
+shell-level functions.  In contrast, this project is a python-centric
+command framework.
 
 These utilities are provided:
 
@@ -12,3 +17,13 @@ These utilities are provided:
       ve-extend -- chain virtualenvs together
       ve-clone -- create a new virtualenv by copying an existing one
 
+The ``ve`` command will execute any ``ve-*`` program found in the
+current path as a subcommand (like git).  This paradigm enforces
+consistent semantics and allows additional commands to be easily
+written by anyone.  For example, ``ve-init foo`` and ``ve init foo``
+are equivalent commands.
+
+Related projects:
+
+  * virtualenv: http://pypi.python.org/pypi/virtualenv
+  * virtualenvwrapper: http://www.doughellmann.com/projects/virtualenvwrapper/
