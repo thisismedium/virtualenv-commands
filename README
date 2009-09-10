@@ -2,13 +2,8 @@ Virtualenv Commands
 -------------------
 
 Virtualenv is a very useful tool that can create isolated Python
-environments.  This package provides and extended API and additional
+environments.  This package provides an extended API and additional
 commands for inspecting and manipulating virtual environments.
-
-Another project called virtualenvwrapper also provides additional
-commands for interacting with virtual environments by creating shell
-subroutines.  In contrast, this project is a python-centric command
-framework.
 
 These utilities are provided:
 
@@ -18,14 +13,26 @@ These utilities are provided:
       ve-clone -- create a new virtualenv by copying an existing one
 
 The ``ve`` command will execute any ``ve-*`` program found in the
-current path as a subcommand (like git).  This paradigm enforces
-consistent semantics and allows additional commands to be easily
-written by anyone.  For example, ``ve-init foo`` and ``ve init foo``
-are equivalent commands.
+current execution path as a subcommand (like git).  For example,
+``ve-init foo`` and ``ve init foo`` run the same program.  This
+paradigm is extensible and enforces consistent semantics.  Additional,
+host-specific commands to be easily written by anyone.
 
-Related:
+Another project called virtualenvwrapper also provides additional
+commands for interacting with virtual environments by creating shell
+subroutines.  In contrast, this project is a python-centric command
+framework.
+
+More Information
+----------------
+
+  * Github: http://github.com/thisismedium/virtualenv-commands/tree/master
+  * Project Page: http://thisismedium.com/labs/virtualenv-commands/
+  * Extending Virtualenv: http://thisismedium.com/tech/extending-virtualenv/
+
+Related projects
+----------------
 
   * virtualenv: http://pypi.python.org/pypi/virtualenv
   * virtualenvwrapper: http://www.doughellmann.com/projects/virtualenvwrapper/
-  * Extending Virtualenv: http://thisismedium.com/tech/extending-virtualenv/
 
