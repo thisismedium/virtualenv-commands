@@ -132,7 +132,7 @@ def move(*args):
     return must('mv', *args)
 
 def copy(*args):
-    return must('cp', '-rp', *args)
+    return must('cp', '-Rp', *args)
 
 def remove(*paths):
     return must('rm', '-rf', *paths)
