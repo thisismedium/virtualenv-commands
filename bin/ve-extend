@@ -1,12 +1,9 @@
 #!/usr/bin/env python
 
-#### virtualenv-commands
-#### Extend an Environment
-
 ### Copyright (c) 2009, Coptix, Inc.  All rights reserved.
 ### See the LICENSE file for license terms and warranty disclaimer.
 
-"""Extend a destination virtualenv with the source virtualenvs.
+"""ve-extend -- Extend a destination virtualenv with source virtualenvs.
 
 Extending a virtual environment means "chaining" it to some other
 source environments.  Anything in the destination virtualenv overrides
@@ -33,10 +30,10 @@ def main(*args, **options):
         print 'Nothing modified.'
         return 0
 
-    vecmd.write_extensions(dest, source)
+    vecmd.extend(dest, source)
     print 'Done modifying "%s".' % dest
     if options.get('verbose'):
-        print 'sys.path = ', vecmd.sys_path(dest)
+        print '### sys.path ###\n', vecmd.sys_path(dest)
 
 def confirm_existing(ve):
     if vecmd.has_extensions(ve):
