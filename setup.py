@@ -9,7 +9,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'virtualenv-commands',
-    version = 'latest',
+    version = '0.2.3',
     description = 'Additional commands for virtualenv.',
     author = 'Medium',
     author_email = 'labs@thisismedium.com',

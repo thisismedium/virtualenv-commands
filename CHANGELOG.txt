@@ -1,0 +1,13 @@
+0.2.3
+-----
+
+* Support chained extensions
+* Chain extension `bin' directories in PATH.
+* Make verbose ve-extend more readable.
+* Fix current_python_interpreter() kludge
+
+0.2.2
+-----
+
+* Started CHANGELOG
+
